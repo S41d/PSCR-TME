@@ -1,21 +1,22 @@
 #pragma once
 
-#include "Queue.h"
 #include "Job.h"
-#include <vector>
+#include "Queue.h"
 #include <thread>
+#include <vector>
 
 namespace pr {
 
 class Pool {
-	Queue<Job> queue;
-	std::vector<std::thread> threads;
+  Queue<Job> queue;
+  std::vector<std::thread> threads;
+
 public:
-	Pool(int qsize) ;
-	void start (int nbthread);
-	void submit (Job * job) ;
-	void stop() ;
-	~Pool() ;
+  Pool(int qsize);
+  void start(int nbthread);
+  void submit(Job *job);
+  void stop();
+  ~Pool();
 };
 
-}
+} // namespace pr
